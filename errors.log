@@ -1,0 +1,17 @@
+[29-Jul-2024 21:08:35 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/1049): Unknown database 'ticket_system' in C:\xampp1\htdocs\submit_ticket.php on line 14
+[29-Jul-2024 21:08:35 Europe/Berlin] Connection failed: Unknown database 'ticket_system'
+[30-Jul-2024 14:19:43 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in C:\xampp1\htdocs\submit_ticket.php on line 14
+[30-Jul-2024 14:19:43 Europe/Berlin] Connection failed: Access denied for user 'root'@'localhost' (using password: NO)
+[30-Jul-2024 16:32:39 Europe/Berlin] Error preparing statement: Unknown column 'high_priority_description' in 'field list'
+[30-Jul-2024 16:47:10 Europe/Berlin] Error preparing statement: Column count doesn't match value count at row 1
+[30-Jul-2024 16:48:08 Europe/Berlin] Error preparing statement: Column count doesn't match value count at row 1
+[30-Jul-2024 16:48:12 Europe/Berlin] Error preparing statement: Column count doesn't match value count at row 1
+[30-Jul-2024 16:49:39 Europe/Berlin] Error preparing statement: Column count doesn't match value count at row 1
+[30-Jul-2024 16:53:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function alert() in C:\xampp1\htdocs\submit_ticket.php:42
+Stack trace:
+#0 {main}
+  thrown in C:\xampp1\htdocs\submit_ticket.php on line 42
+[01-Aug-2024 17:32:28 Europe/Berlin] Error preparing statement: Column count doesn't match value count at row 1
+[01-Aug-2024 17:32:42 Europe/Berlin] Error preparing statement: Column count doesn't match value count at row 1
+[01-Aug-2024 17:33:54 Europe/Berlin] Error preparing statement: Column count doesn't match value count at row 1
+[01-Aug-2024 17:36:09 Europe/Berlin] Error preparing statement: Column count doesn't match value count at row 1

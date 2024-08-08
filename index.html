@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Ticket System</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #logo {
+            max-width: 100px;
+            height: auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+        main {
+            margin-top: 2em;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2em;
+        }
+        .description-box {
+            display: none; /* Initially hide the description box */
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-light py-3">
+        <img id="logo" src="ve.jpeg" alt="Logo" class="mb-3">
+        <h1>Welcome to the IT Ticket System</h1>
+    </header>
+    <main class="container">
+        <section id="ticket-form" class="mb-5">
+            <h2 class="mb-4 text-center">Submit Your Query</h2>
+            <div id="successMessage" class="alert alert-success" style="display: none;">
+                Your query was successfully added! Ticket ID: <span id="ticketId"></span>
+            </div>
+            <div id="form-div" class="card p-4"> 
+                <form id="submitTicketForm" method="POST" action="submit_ticket.php">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="query">Your Query</label>
+                        <textarea class="form-control" id="query" name="query" rows="4" placeholder="Your Query" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <select class="form-control" id="type" name="type" required>
+                            <option value="software">software</option>
+                            <option value="hardware">Hardware</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <select class="form-control" id="location" name="location" required>
+                            <option value="147">147</option>
+                            <option value="118">118</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select class="form-control" id="priority" name="priority" required>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <!-- Hidden description box for high priority -->
+                    <div class="description-box" id="highPriorityDescriptionDiv">
+                        <label for="highPriorityDescription">Please provide a description for high priority:</label>
+                        <textarea id="highPriorityDescription" name="highPriorityDescription" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-block">Submit Ticket</button>
+                </form>
+            </div>
+        </section>
+        <section id="ticket-dashboard">
+            <!-- Tickets will be dynamically loaded here -->
+        </section>
+
+        <!-- Success message display -->
+        
+    </main>
+    <footer class="bg-light py-3">
+        <p>Contact us at <a href="mailto:it.support4@thevalueengineering.com">it.support4@thevalueengineering.com</a></p>
+    </footer>
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Handle priority dropdown change
+            $('#priority').on('change', function() {
+                var priority = $(this).val();
+                
+                // Show or hide the high priority description box
+                if (priority === 'High') {
+                    $('#highPriorityDescriptionDiv').show();
+                } else {
+                    $('#highPriorityDescriptionDiv').hide();
+                }
+            });
+
+            // Check for success message in URL parameters
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === '1') {
+                $('#successMessage').show();
+                $('#ticketId').text(urlParams.get('ticketId'));
+            }
+        });
+    </script>
+</body>
+</html>
