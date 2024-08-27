@@ -48,7 +48,7 @@ input, textarea, select, button {
 }
 
 button {
-    background-color: grey;
+    background-color: rgb(170, 166, 166);
     color: white;
     border:black;
     border-radius: 10px;
